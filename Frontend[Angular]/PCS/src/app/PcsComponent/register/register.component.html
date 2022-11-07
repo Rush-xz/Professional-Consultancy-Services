@@ -1,0 +1,117 @@
+<div style="height: 80vh; margin-top: 5%;">
+  <div class="container text-center">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5" style="background-color: rgb(236, 228, 228);">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5"><b>Account Register</b></h5>
+          <form (ngSubmit)="onSubmit(); registration.reset()" #registration="ngForm">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                [(ngModel)]="employee.name" required>
+              <label for="name">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                [(ngModel)]="employee.email" required>
+              <label for="email">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="Password" name="password" placeholder="Password"
+                [(ngModel)]="employee.password" required>
+              <label for="Password">Password</label>
+            </div>
+
+
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="bio" name="bio" placeholder="Bio" rows="4" cols="90"
+                [(ngModel)]="employee.bio" required></textarea>
+
+              <label for="bio">Bio</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select name="skill" class="form-control" id="floatingskill" [(ngModel)]="skill.cname" required>
+                <option value="" disabled selected>-----Select-----</option>
+                <option value="Java"> Java</option>
+                <option value="Python"> Python</option>
+                <option value="C++"> C++</option>
+                <option value="JavaScript"> JavaScript</option>
+                <option value="Angular"> Angular</option>
+                <option value="Sql"> SQL</option>
+                <option value="Machine Learning"> Machine Learning </option>
+
+              </select>
+              <label for="floatingskill">Skills</label>
+            </div>
+
+
+            <div class="form-floating mb-3">
+              <select id="floatingcategory" name="Category" class="form-control" [(ngModel)]="skill.scategory" required>
+                <option value="" disabled selected>-----Select-----</option>
+                <option value="web development"> Web Development</option>
+                <option value="Frontend"> Frontend</option>
+                <option value="Backend"> Backend</option>
+                <option value="Fullstack">Fullstack</option>
+                <option value="Data Science">Database</option>
+
+              </select>
+              <label for="floatingcategory">Category</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="skilldesc" name="bio" placeholder="Skill Description" rows="4"
+                cols="90" [(ngModel)]="skill.sdesc" required></textarea>
+
+              <label for="skilldesc">Skill descrption</label>
+            </div>
+
+
+            <div class="form-floating mb-3">
+              <select id="floatingrole" name="role" class="form-control" [(ngModel)]="employee.role" required>
+                <option value="" disabled selected>-----Select-----</option>
+                <option value="Manager"> Manager</option>
+                <option value="Hr"> HR</option>
+                <option value="Employee">Employee</option>
+
+              </select>
+              <label for="floatingrole">Role</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" name="certificate" placeholder="Certificate"
+                [(ngModel)]="certificate.stitle" required>
+              <label for="floatingInput">Certificate</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="date" name="certificate" placeholder="Certificate"
+                [(ngModel)]="certificate.cexpiryDate" required>
+              <label for="date">Certificate Expiry Date</label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" *ngIf="!islogedin">Sign
+                Up</button>
+
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" *ngIf="islogedin">
+                 Register Employee
+              </button>
+
+
+              <p style="color: red;" *ngIf= "message.message=='Something wents wrong' || 
+              message.message=='User Already exist'
+              ">{{message.message}}</p>
+              <p style="color: green;" *ngIf="message.message=='Registration Successfull'">{{message}}</p>
+            </div>
+            <hr class="my-4">
+            <div class="d-grid">
+              <a routerLink="/login" style="text-decoration: none;" *ngIf="!islogedin">Click here to Login</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

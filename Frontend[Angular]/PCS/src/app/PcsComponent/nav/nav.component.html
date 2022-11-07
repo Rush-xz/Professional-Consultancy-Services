@@ -1,0 +1,50 @@
+<div style="position: relative; width: 100%; background-color: #212529!important; ">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light   ">
+      <div class="navbar-header my-2">
+        <a class="navbar-brand mx-4" routerLink="home" style="color: white;" routerLinkActive="active">Professional
+          Consultancy Services</a>
+        <a class="navbar-brand" routerLink="hrdashboard" *ngIf=" islogedin && user.role=='Hr' " style="color: white;"
+          routerLinkActive="active">HR Dashboard</a>
+        <a class="navbar-brand" routerLink="employeedashboard" *ngIf="islogedin  && user.role=='Employee' "
+          style="color: white;" routerLinkActive="active">Employees</a>
+        <a class="navbar-brand" routerLink="employerdashboard" *ngIf="islogedin && user.role=='Manager' "
+          style="color: white;" routerLinkActive="active">Employer</a>
+        <a class="navbar-brand mx+4" routerLink="add-skills" *ngIf="islogedin" style="color: white;"
+          routerLinkActive="active">Skills</a>
+        <a class="navbar-brand mx+4" routerLink="certificate" *ngIf="islogedin" style="color: white;"
+          routerLinkActive="active">Certificates</a>
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="col dropdown ">
+            <a *ngIf="islogedin" class="navbar-brand dropdown-toggle nav-link" id="navbarDropdown" role="button"
+              style="color: white;" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i>
+              Welcome {{user.username}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li> <a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <li> <a class="dropdown-item" routerLink="/edit-profile">Change Password</a> </li>
+            </ul>
+
+          </div>
+          <div class="col">
+            
+            <a class="navbar-brand mx+4" routerLink="/login" *ngIf="!islogedin" style="color: white;"
+              routerLinkActive="active">
+              Login/Register</a>
+
+            <a class="navbar-brand mx+4" *ngIf="islogedin" (click)="logout()" style="color: white; cursor: pointer;"><i
+                class="bi bi-person-x-fill"></i>
+
+              Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

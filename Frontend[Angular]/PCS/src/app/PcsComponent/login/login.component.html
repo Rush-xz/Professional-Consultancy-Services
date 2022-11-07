@@ -1,0 +1,38 @@
+<div style="height: 80vh; margin-top: 10%;">
+  <div class="container text-center">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5" style="background-color: rgb(236, 228, 228);">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5"><b>Account Login</b></h5>
+
+          <form (ngSubmit)="onSubmit(); loginform.reset()"  #loginform= "ngForm" >
+
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com"
+                [(ngModel)]="username">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password"
+                [(ngModel)]="password">
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                in</button>
+
+              <p style="color: red;">{{errorMessage}}</p>
+
+            </div>
+            <hr class="my-4">
+            <div class="d-grid">
+              <a routerLink="/register" style="text-decoration: none;">Click here to Register</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

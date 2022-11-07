@@ -1,0 +1,67 @@
+
+<div style="background-color: rgba(39, 39, 199, 0.856); position: relative; width: 100%; ">
+    <div class="container-fluid   ">
+        <div class="row">
+            <h1 style="color: white; "> <i class="bi bi-people"></i> Employer Dashboard</h1>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-5 " style="margin-top: 50px;">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                        aria-describedby="search-addon" [(ngModel)]= "search"/>
+                    <button type="button" class="btn " style="background-color: #FFC107;" (click)="onSearch()">search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" border="1">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="row" style="width: 20%;">
+                                <h3> Latest Update
+                                </h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr style="background-color: rgba(10, 10, 10, 0.87)!important; color: white">
+                            <th scope="col">Employee Id</th>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Skills</th>
+                            <th scope="col">Date</th>
+                            <th scope="col"></th>
+                        </tr>
+                        <tr *ngFor="let employee of employeedetails ;let i=index">
+
+                            <th scope="row"> {{employee.id}}</th>
+                            <td>{{employee.name}}</td>
+                            <!-- <td *ngFor="let item of employee.skills">{{employee.skills[0].stitle}}</td> -->
+                            <td >{{skills[i]}}</td>
+                            <td>{{employee.registerDate}}</td>
+                            <td><button type="button" class="btn btn-secondary" (click)="showDetails(employee)">
+                                    >>Details</button></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
